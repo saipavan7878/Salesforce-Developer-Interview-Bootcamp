@@ -1,1 +1,5 @@
-
+Parent
+  ↓ record Id using @api
+Child
+  ↓
+displays a Student field
