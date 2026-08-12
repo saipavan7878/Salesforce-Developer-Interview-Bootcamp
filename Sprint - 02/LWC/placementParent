@@ -1,1 +1,7 @@
-
+Child button
+    ↓
+Custom Event
+    ↓
+Parent receives event
+    ↓
+Parent updates something on screen
