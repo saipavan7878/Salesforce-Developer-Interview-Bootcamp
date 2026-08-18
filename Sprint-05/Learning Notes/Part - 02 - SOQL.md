@@ -47,3 +47,25 @@ SELECT Id, Name, Student__c, Job__c, Status__c, Application_Date__c
 FROM Application__c
 WHERE Student__c = :studentId
 AND Job__c = :jobId
+
+## Business Question 2
+
+### Which companies are currently accepting applications?
+
+The relevant Salesforce object is:
+
+`Job__c`
+
+Important fields:
+
+- Company
+- Role
+- Closing Date
+
+Example query:
+
+```apex
+SELECT Id, Name, Company__c, Role__c, Closing_Date__c
+FROM Job__c
+WHERE Closing_Date__c >= TODAY
+ORDER BY Closing_Date__c ASC
