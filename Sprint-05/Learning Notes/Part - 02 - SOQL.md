@@ -40,13 +40,6 @@ The required information includes:
 - Application Status
 - Application Date
 
-Example query:
-
-```apex
-SELECT Id, Name, Student__c, Job__c, Status__c, Application_Date__c
-FROM Application__c
-WHERE Student__c = :studentId
-AND Job__c = :jobId
 
 ## Business Question 2
 
