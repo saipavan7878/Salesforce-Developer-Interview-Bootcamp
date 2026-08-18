@@ -1,64 +1,96 @@
-# Part 2 – SOQL
+# Day 5 – SOQL, DML and Business Transactions
 
 ## Engineering Principle
 
 Software cannot make good decisions without first finding the right
 information.
 
-SOQL is the way Salesforce applications ask Salesforce for the
-information they need before making business decisions.
+The first responsibility of enterprise software is to retrieve the
+required information. After retrieving the information, the software can
+make business decisions.
+
+The basic process is:
+
+Business Question
+↓
+Information Required
+↓
+SOQL Query
+↓
+Retrieved Information
+↓
+Business Decision
+↓
+DML Operation
 
 ---
+
+# Part 1 – Information Requirements
+
+Before writing a SOQL query, first identify the information required by
+the business problem.
+
+For example, when a student wants to apply for a job, the software may
+need information such as:
+
+- Student CGPA
+- Student Department
+- Active Backlogs
+- Graduation Year
+- Job Eligibility
+- Application Deadline
+- Existing Applications
+- Number of Current Offers
+
+The important question is:
+
+> What information do I need before making this decision?
+
+Professional developers identify the information requirement before
+writing the query.
+
+---
+
+# Part 2 – SOQL
 
 ## What is SOQL?
 
 SOQL stands for Salesforce Object Query Language.
 
-It is used to retrieve information from Salesforce records.
+SOQL is used to retrieve information from Salesforce records.
 
-SOQL is not about memorising syntax. It is about asking precise
-business questions.
+SOQL should be viewed as a way of asking Salesforce precise business
+questions rather than simply memorizing syntax.
 
-A useful question to ask before writing a query is:
+Before writing a query, ask:
 
-"I am writing this query because I need to know..."
+> "I am writing this query because I need to know..."
+
+Every query should answer a clear business question.
 
 ---
 
-## Business Question 1
+## Business Question 1 – Has This Student Already Applied?
 
-### Has this student already applied for the selected company?
+### Business Question
 
-The relevant Salesforce object is:
+Has this student already applied for the selected company?
+
+### Relevant Object
 
 `Application__c`
 
-The required information includes:
+### Required Information
 
 - Student
 - Job
 - Application Status
 - Application Date
 
-
-## Business Question 2
-
-### Which companies are currently accepting applications?
-
-The relevant Salesforce object is:
-
-`Job__c`
-
-Important fields:
-
-- Company
-- Role
-- Closing Date
-
-Example query:
+### Example Query
 
 ```apex
-SELECT Id, Name, Company__c, Role__c, Closing_Date__c
-FROM Job__c
-WHERE Closing_Date__c >= TODAY
-ORDER BY Closing_Date__c ASC
+SELECT Id, Name, Student__c, Job__c, Status__c, Application_Date__c
+FROM Application__c
+WHERE Student__c = :studentId
+AND Job__c = :jobId
