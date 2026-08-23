@@ -1,0 +1,71 @@
+<template>
+    <lightning-card title="My Applications">
+
+        <div class="slds-p-around_medium">
+
+            <template if:true={loading}>
+                <lightning-spinner
+                    alternative-text="Loading applications">
+                </lightning-spinner>
+            </template>
+
+            <template if:false={loading}>
+
+                <template if:true={error}>
+                    <div class="slds-text-color_error">
+                        {error}
+                    </div>
+                </template>
+
+                <template if:false={error}>
+
+                    <template if:true={hasApplications}>
+
+                        <template
+                            for:each={applications}
+                            for:item="application"
+                        >
+                            <div
+                                key={application.id}
+                                class="slds-box slds-m-bottom_small"
+                            >
+
+                                <h2 class="slds-text-heading_small">
+                                    {application.jobName}
+                                </h2>
+
+                                <p>
+                                    <strong>Company:</strong>
+                                    {application.company}
+                                </p>
+
+                                <p>
+                                    <strong>Role:</strong>
+                                    {application.role}
+                                </p>
+
+                                <p>
+                                    <strong>Status:</strong>
+                                    {application.status}
+                                </p>
+
+                            </div>
+                        </template>
+
+                    </template>
+
+                    <template if:false={hasApplications}>
+                        <c-empty-state
+                            title="No Applications"
+                            message="You have not applied for any jobs yet.">
+                        </c-empty-state>
+                    </template>
+
+                </template>
+
+            </template>
+
+        </div>
+
+    </lightning-card>
+</template>

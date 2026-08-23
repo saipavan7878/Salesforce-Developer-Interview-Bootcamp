@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Placement Child">
+        <div class="slds-p-around_medium">
+
+            <p>
+                <strong>Student Record Id:</strong> {studentId}
+            </p>
+
+            <lightning-button
+                class="slds-m-top_medium"
+                label="Send Message to Parent"
+                onclick={notifyParent}>
+            </lightning-button>
+
+        </div>
+    </lightning-card>
+</template>

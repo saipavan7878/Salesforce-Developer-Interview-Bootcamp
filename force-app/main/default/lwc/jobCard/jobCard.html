@@ -1,0 +1,48 @@
+<template>
+    <div class="slds-box slds-m-bottom_small">
+
+        <h2 class="slds-text-heading_small">
+            {job.Company__c}
+        </h2>
+
+        <p class="slds-m-top_x-small">
+            <strong>Role:</strong>
+            {job.Role__c}
+        </p>
+
+        <p>
+            <strong>Minimum CGPA:</strong>
+            {job.Minimum_CGPA__c}
+        </p>
+
+        <p>
+            <strong>Deadline:</strong>
+            {job.Closing_Date__c}
+        </p>
+
+        <div class="slds-m-top_small">
+            <c-status-badge
+                label="Status"
+                status={job.Status__c}>
+            </c-status-badge>
+        </div>
+
+        <div class="slds-m-top_small">
+
+            <lightning-button
+                label="View Details"
+                variant="brand"
+                onclick={handleViewDetails}>
+            </lightning-button>
+
+            <lightning-button
+                class="slds-m-left_small"
+                label="Apply"
+                variant="success"
+                onclick={handleApply}>
+            </lightning-button>
+
+        </div>
+
+    </div>
+</template>
