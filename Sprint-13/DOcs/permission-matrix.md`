@@ -1,0 +1,19 @@
+
+### 3. `permission-matrix.md`
+
+```markdown
+# Permission Matrix
+
+| Object | Student | Placement Officer | Recruiter | Admin |
+|---|---|---|---|---|
+| Student | Own Read/Edit | Read/Edit | Relevant Read | CRUD |
+| Job | Read | Create/Read/Edit | Read | CRUD |
+| Application | Own Create/Read | Read/Create/Edit | Relevant Read | CRUD |
+| Department | Read | Create/Read/Edit | Read | CRUD |
+| Offer Letter | Own Read | Read/Create/Edit | Relevant Read | CRUD |
+| Student Course | Own Read/Edit | Read/Create/Edit | — | CRUD |
+
+## Notes
+
+This is the intended security design. Actual record-level access also
+depends on ownership, OWD, roles, and sharing rules.
