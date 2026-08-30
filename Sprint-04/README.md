@@ -1,33 +1,36 @@
-# Day 4 – Your First Lightning Web Component (LWC)
+# Day 4 – Lightning Web Components (LWC)
 
 ## Objective
 
 The objective of Day 4 was to understand Lightning Web Components and
-build the user interface layer of the Placement Management System.
+build the user-interface layer of the Student Placement Management System.
 
-The focus was on creating an LWC, understanding its structure, using
-data binding, handling button clicks, and deploying the component to a
-Lightning Page.
+The focus was on understanding how Salesforce applications connect the
+user interface with backend logic and Salesforce data.
 
 ---
 
 ## What is LWC?
 
 Lightning Web Components (LWC) is Salesforce's modern UI framework based
-on web standards such as HTML and JavaScript.
+on web standards such as HTML, JavaScript and CSS.
 
-It is used to build reusable, fast and maintainable user interfaces
-that can be deployed on Salesforce Lightning Pages.
+LWC is used to build reusable, maintainable and interactive Salesforce
+user interfaces.
 
 ---
 
-## LWC Component Structure
+## Salesforce Application Architecture
 
-Every Lightning Web Component contains three important files:
-
-### 1. HTML
-
-File:
+The application architecture can be understood as:
 
 ```text
-placementHome.html
+USER
+  ↓
+Lightning Web Component
+  ↓
+Apex Classes
+  ↓
+SOQL
+  ↓
+Salesforce Database
